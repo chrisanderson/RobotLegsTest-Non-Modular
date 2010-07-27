@@ -3,8 +3,28 @@
 	xmlns:mx="http://www.adobe.com/2006/mxml" 
 	width="100%" height="100%">
 	
+	<mx:Script>
+		<![CDATA[
+			import viewOne.controller.signals.MessageSetSignal;
+			
+			public var signalMessageSet:MessageSetSignal = new MessageSetSignal();
+			
+			private var _testMessage:String = "View One Test";
+			
+			private function _sendMessage(message:String, updatTaMessage:Boolean = false):void
+			{
+				if(updatTaMessage)
+				{
+					(taMessage.text == "") ? taMessage.text = message : taMessage.text += "\n" + message;
+				}
+				
+				signalMessageSet.dispatch(taMessage.text);
+			}
+		]]>
+	</mx:Script>
+	
 	<mx:VBox width="100%" height="100%">
-		<mx:Button id="btnTest" label="View One Test" />
-		<mx:TextArea id="taMessage" width="100%" height="100%" />
+		<mx:Button id="btnTest" label="View One Test" click="_sendMessage(_testMessage, true);" />
+		<mx:TextArea id="taMessage" width="100%" height="100%" change="_sendMessage(taMessage.text);" />
 	</mx:VBox>
 </mx:Canvas>

@@ -1,10 +1,10 @@
 package shell
 {
-	import flash.display.DisplayObjectContainer;
-	
 	import org.robotlegs.mvcs.SignalContext;
 	
 	import shell.view.ShellViewMediator;
+	import viewOne.view.ViewOneMediator;
+	import viewTwo.view.ViewTwoMediator;
 	
 	public class ShellContext extends SignalContext
 	{		
@@ -14,6 +14,8 @@ package shell
 			
 			//
 			mediatorMap.mapView(Shell, ShellViewMediator);
+			mediatorMap.mapView(ViewOne, ViewOneMediator);
+			mediatorMap.mapView(ViewTwo, ViewTwoMediator);
 			
 			super.startup();
 		}
