@@ -3,5 +3,5 @@
 	xmlns:mx="http://www.adobe.com/2006/mxml" 
 	layout="absolute">
 	
-	
+	<mx:Button id="btnTest" label="Shell Test" />
 </mx:Application>
