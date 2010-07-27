@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:local="*"
+	xmlns:shell="shell.*"
+	layout="absolute">
+	
+	<shell:ShellContext contextView="{this}" />
+	
+	<mx:HBox width="100%" height="100%" paddingTop="10" paddingBottom="10" paddingRight="10" paddingLeft="10">
+		<mx:Button id="btnTest" label="Shell Test" />
+		<local:ViewOne />
+		<local:ViewTwo />
+	</mx:HBox>
+</mx:Application>
