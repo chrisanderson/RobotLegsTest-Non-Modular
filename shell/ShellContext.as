@@ -2,6 +2,7 @@ package shell
 {
 	import org.robotlegs.mvcs.SignalContext;
 	
+	import common.controller.signals.MessageSentSignal;
 	import shell.view.ShellViewMediator;
 	import viewOne.view.ViewOneMediator;
 	import viewTwo.view.ViewTwoMediator;
@@ -11,6 +12,7 @@ package shell
 		override public function startup():void
 		{
 			//fix here map commands etc
+			injector.mapSingleton(MessageSentSignal);
 			
 			//
 			mediatorMap.mapView(Shell, ShellViewMediator);
