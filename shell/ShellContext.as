@@ -11,15 +11,17 @@ package shell
 	{		
 		override public function startup():void
 		{
-			//fix here map commands etc
+			//
+			
+			//signals
 			injector.mapSingleton(MessageSentSignal);
 			
-			//
+			//mediators
 			mediatorMap.mapView(Shell, ShellViewMediator);
+			mediatorMap.createMediator(contextView);
+			
 			mediatorMap.mapView(ViewOne, ViewOneMediator);
 			mediatorMap.mapView(ViewTwo, ViewTwoMediator);
-			
-			super.startup();
 		}
 	}
 }

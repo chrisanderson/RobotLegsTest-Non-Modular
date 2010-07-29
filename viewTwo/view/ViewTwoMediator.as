@@ -7,24 +7,27 @@ package viewTwo.view
 	public class ViewTwoMediator extends Mediator
 	{
 		[Inject]
+		public var view:ViewTwo;
+		
+		[Inject]
 		public var signalViewOneMessageSent:MessageSentSignal;
-		
-		private var _view:ViewTwo;
-		
-		public function ViewTwoMediator(view:ViewTwo)
-		{
-			_view = view;
-		}
 		
 		override public function onRegister():void
 		{
 			trace(this + " onRegister() signalViewOneMessageSent: " + signalViewOneMessageSent);
-			//signalViewOneMessageSent.add(_onViewOneMessageSent);
+			view.signalMessageSet.add(_onMessageSet);
+			signalViewOneMessageSent.add(_onViewOneMessageSent);
+		}
+		
+		private function _onMessageSet(value:String):void
+		{
+			trace(this + " _onMessageSet() value: " + value);
+			signalViewOneMessageSent.dispatch(value);
 		}
 		
 		private function _onViewOneMessageSent(value:String):void
 		{
-			_view.message = value;
+			view.message = value;
 		}
 	}
 }

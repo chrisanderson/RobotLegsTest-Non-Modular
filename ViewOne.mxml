@@ -11,6 +11,11 @@
 			
 			private var _testMessage:String = "View One Test";
 			
+			public function set message(value:String):void
+			{
+				taMessage.text = value;
+			}
+			
 			private function _sendMessage(message:String, updatTaMessage:Boolean = false):void
 			{
 				if(updatTaMessage)

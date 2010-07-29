@@ -1,19 +1,26 @@
 package shell.view
 {
+	import common.controller.signals.MessageSentSignal;
+	
 	import org.robotlegs.mvcs.Mediator;
 	
 	public class ShellViewMediator extends Mediator
 	{
-		private var _view:Shell;
+		[Inject]
+		public var view:Shell;
 		
-		public function ShellViewMediator(view:Shell)
-		{
-			_view = view;
-		}
+		[Inject]
+		public var signalViewOneMessageSent:MessageSentSignal;
 		
 		override public function onRegister():void
 		{
-			trace(this + " onRegister()");
+			trace(this + " onRegister() view: " + view);
+			view.signalMessageSet.add(_onMessageSet);
+		}
+		
+		private function _onMessageSet(value:String):void
+		{
+			signalViewOneMessageSent.dispatch(value);
 		}
 	}
 }

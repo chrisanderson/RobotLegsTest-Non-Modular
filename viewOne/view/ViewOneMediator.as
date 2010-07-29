@@ -7,25 +7,27 @@ package viewOne.view
 	public class ViewOneMediator extends Mediator
 	{
 		[Inject]
+		public var view:ViewOne;
+		
+		[Inject]
 		public var signalViewOneMessageSent:MessageSentSignal;
 		
-		private var _view:ViewOne;
-		
-		public function ViewOneMediator(view:ViewOne)
-		{
-			_view = view;
-		}
-		
 		override public function onRegister():void
-		{			
+		{
 			trace(this + " onRegister() signalViewOneMessageSent: " + signalViewOneMessageSent);
-			_view.signalMessageSet.add(_onMessageSet);
+			view.signalMessageSet.add(_onMessageSet);
+			signalViewOneMessageSent.add(_onViewOneMessageSent);
 		}
 		
 		private function _onMessageSet(value:String):void
 		{
 			trace(this + " _onMessageSet() value: " + value);
 			signalViewOneMessageSent.dispatch(value);
+		}
+		
+		private function _onViewOneMessageSent(value:String):void
+		{
+			view.message = value;
 		}
 	}
 }
