@@ -6,6 +6,8 @@ package shell
 	import shell.view.ShellViewMediator;
 	import viewOne.view.ViewOneMediator;
 	import viewTwo.view.ViewTwoMediator;
+	import viewOne.view.ViewOne;
+	import viewTwo.view.ViewTwo;
 	
 	public class ShellContext extends SignalContext
 	{		

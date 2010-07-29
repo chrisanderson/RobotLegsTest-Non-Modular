@@ -5,7 +5,7 @@
 	
 	<mx:Script>
 		<![CDATA[
-			import viewOne.controller.signals.MessageSetSignal;
+			import common.controller.signals.MessageSetSignal;
 			
 			public var signalMessageSet:MessageSetSignal = new MessageSetSignal();
 			

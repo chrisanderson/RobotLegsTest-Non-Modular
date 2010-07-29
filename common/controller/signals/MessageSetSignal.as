@@ -1,4 +1,4 @@
-package viewOne.controller.signals
+package common.controller.signals
 {
 	import org.osflash.signals.Signal;
 	
