@@ -14,7 +14,6 @@ package shell.view
 		
 		override public function onRegister():void
 		{
-			trace(this + " onRegister() view: " + view);
 			view.signalMessageSet.add(_onMessageSet);
 		}
 		

@@ -14,14 +14,13 @@ package viewOne.view
 		
 		override public function onRegister():void
 		{
-			trace(this + " onRegister() signalViewOneMessageSent: " + signalViewOneMessageSent);
 			view.signalMessageSet.add(_onMessageSet);
+			
 			signalViewOneMessageSent.add(_onViewOneMessageSent);
 		}
 		
 		private function _onMessageSet(value:String):void
 		{
-			trace(this + " _onMessageSet() value: " + value);
 			signalViewOneMessageSent.dispatch(value);
 		}
 		
